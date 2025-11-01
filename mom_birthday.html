@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="never">
+    <title>妈妈生日快乐！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Comic Sans MS", "Marker Felt", "微软雅黑", sans-serif;
+            background-color: #fdf2f8;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* 装饰元素 */
+        .decor {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.7;
+            animation: float 6s infinite ease-in-out;
+        }
+        .decor1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .decor2 { top: 20%; right: 15%; animation-delay: 1s; }
+        .decor3 { bottom: 25%; left: 20%; animation-delay: 2s; }
+        .decor4 { bottom: 15%; right: 10%; animation-delay: 3s; }
+        .decor5 { top: 40%; left: 5%; animation-delay: 4s; }
+        .decor6 { bottom: 30%; right: 20%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 0 8px 30px rgba(237, 137, 54, 0.15);
+            text-align: center;
+            max-width: 550px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            border: 1px solid #fce7f3;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ec4899;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 6px rgba(236, 72, 153, 0.1);
+            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .cake {
+            font-size: 40px;
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .message {
+            font-size: 19px;
+            color: #2d3748;
+            line-height: 2;
+            margin-bottom: 35px;
+            padding: 0 15px;
+            background-color: #fef7fb;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .heart {
+            color: #ec4899;
+            display: inline-block;
+            animation: beat 1.5s infinite;
+            font-size: 22px;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        button {
+            background-color: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 19px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+        }
+
+        button:hover {
+            background-color: #7c3aed;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .surprise {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #4a5568;
+            display: none;
+            background-color: #f0fdf4;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #dcfce7;
+        }
+
+        .footer {
+            margin-top: 35px;
+            font-size: 16px;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .gift {
+            animation: spin 5s infinite linear;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 装饰元素 -->
+    <div class="decor decor1">🎂</div>
+    <div class="decor decor2">🌸</div>
+    <div class="decor decor3">🎁</div>
+    <div class="decor decor4">💐</div>
+    <div class="decor decor5">✨</div>
+    <div class="decor decor6">🥳</div>
+
+    <div class="container">
+        <h1><span class="cake">🎂</span> 妈妈生日快乐！<span class="cake">🎂</span></h1>
+
+        <div class="message">
+            亲爱的妈妈，生日快乐呀～<br>
+            感谢您无微不至的照顾与陪伴<br>
+            您的温柔是世间最暖的光<br>
+            愿您永远年轻漂亮，健康快乐<br>
+            每天都被幸福和美好包围<br>
+            我爱您 <span class="heart">❤</span> 不止今天，而是朝朝夕夕
+        </div>
+
+        <button onclick="showSurprise()">点击解锁专属祝福</button>
+
+        <div class="surprise" id="surprise">
+            愿妈妈：<br>
+            眼角带笑，岁月不染眉梢<br>
+            三餐四季，温柔有趣<br>
+            无事绊心弦，所念皆如愿<br>
+            往后余生，平安喜乐，万事顺意！
+        </div>
+
+        <div class="footer">
+            <span class="gift">🎁</span> 永远爱您的孩子 <span class="heart">❤</span>
+        </div>
+    </div>
+
+    <script>
+        // 显示惊喜消息
+        function showSurprise() {
+            const surprise = document.getElementById('surprise');
+            surprise.style.display = 'block';
+
+            // 添加出现动画
+            surprise.style.animation = 'fadeIn 1s ease-in-out';
+
+            // 创建飘落的装饰效果
+            createFallingDecor();
+        }
+
+        // 创建飘落的装饰效果
+        function createFallingDecor() {
+            const container = document.body;
+            const count = 20;
+            const decorTypes = ['🎂', '🌸', '🎁', '💐', '✨', '🥳', '❤', '🌟'];
+
+            for (let i = 0; i < count; i++) {
+                const decor = document.createElement('div');
+                const type = decorTypes[Math.floor(Math.random() * decorTypes.length)];
+                decor.innerHTML = type;
+                decor.style.position = 'absolute';
+                decor.style.fontSize = `${Math.random() * 12 + 14}px`;
+                decor.style.left = `${Math.random() * 100}%`;
+                decor.style.top = '-20px';
+                decor.style.opacity = Math.random() * 0.8 + 0.3;
+                decor.style.animation = `falling ${Math.random() * 3 + 4}s linear`;
+                container.appendChild(decor);
+
+                // 动画结束后移除元素
+                setTimeout(() => {
+                    decor.remove();
+                }, 7000);
+            }
+        }
+
+        // 添加飘落动画样式
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            @keyframes falling {
+                0% { transform: translateY(-20px) rotate(0deg); }
+                100% { transform: translateY(100vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
